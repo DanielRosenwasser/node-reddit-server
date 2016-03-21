@@ -14,7 +14,10 @@ let app = express();
 
 app.get("/r/aww.json", (req, res) => {
     getRedditFeed("aww")
-        .then(body => { res.write(body); })
+        .then(body => {
+            res.setHeader("Content-Type", "application/json");
+            res.send(body);
+        })
         .catch(err => console.error(err));
 });
 
