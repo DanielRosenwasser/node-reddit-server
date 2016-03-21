@@ -6,10 +6,12 @@ export function httpRequest(url: string) {
         request(url, (error, response, body) => {
             if (error) {
                 reject(error);
+                return;
             }
-            
+
             if (response.statusCode !== 200) {
                 reject(response.statusCode);
+                return;
             }
 
             resolve(body);
@@ -19,7 +21,7 @@ export function httpRequest(url: string) {
 
 export function readFile(fileName: string) {
 	return new Promise<string>((resolve, reject) => {
-		fs.readFile(fileName, 'utf8', (error, data) => {
+		fs.readFile(fileName, "utf8", (error, data) => {
 			error ? reject(error) : resolve(data);
 		});
 	});
