@@ -1,9 +1,16 @@
 import * as fs from "fs";
 import * as request from "request";
 
-export function httpRequest(url: string) {
+export function httpRequest(uri: string) {
     return new Promise<string>((resolve, reject) => {
-        request(url, (error, response, body) => {
+        let options = {
+            uri,
+            headers: {
+                "User-Agent": "Node Reddit Server v0.4"
+            }
+        };
+
+        request(options, (error, response, body) => {
             if (error) {
                 reject(error);
                 return;

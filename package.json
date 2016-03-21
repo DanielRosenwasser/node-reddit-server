@@ -1,6 +1,6 @@
 {
   "name": "reddit-node-query",
-  "version": "1.0.0",
+  "version": "0.4.0",
   "description": "A small server using 'express' and 'request' to query reddit.",
   "dependencies": {
     "express": "^4.13.4",
